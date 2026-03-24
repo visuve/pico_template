@@ -1,0 +1,31 @@
+name: Pico CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PICO_SDK_PATH: ${{ github.workspace }}/pico-sdk
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v4
+
+    - name: Checkout Pico SDK
+      uses: actions/checkout@v4
+      with:
+        repository: raspberrypi/pico-sdk
+        path: pico-sdk
+        submodules: true
+
+    - name: Install prerequisites
+      run: |
+        sudo apt update
+        sudo apt install gcc-arm-none-eabi build-essential cmake ninja-build python3
+
+    - name: Build GCC ARM
+      run: |
+        mkdir out
+        cd out
+        cmake -G Ninja -DPICO_COMPILER=pico_arm_gcc ..
+        ninja

@@ -23,14 +23,19 @@
 	- Grab latest ``arm-gnu-toolchain-XX.X.relX-mingw-w64-x86_64-arm-none-eabi.msi``
 	- Add the bin folder in PATH
 - Open this project folder in Visual Studio
-- Select target to ``hello_world.elf``
+- Select target to ``{project_name}.elf`` e.g. ``hello_world.uf2``
+- Build. Note that you may have to refresh cmake cache again and rebuild 2nd time
+
+# How to build (Linux)
+
+- See [.github/workflows/ubuntu.yml](.github/workflows/ubuntu.yml)
 
 # How to run
 
 - Press "BOOTSEL" button on the Pico
 - Connect USB cable or reset Pico (short pin 30 "RUN" to GND)
 - See a partition RPI-RP2 appear
-- Drag & drop the ``hello_world.uf2`` on to the partition
+- Drag & drop the ``{project_name}.elf`` in the output folder on to the partition
 - The device should now boot itself
 
 # How to debug
