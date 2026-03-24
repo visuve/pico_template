@@ -1,6 +1,6 @@
-# pico-template
+# pico-templates
 
-- C++ "Hello World!" example for Raspberry Pi Pico to get things going
+- Small C++ examples for Raspberry Pi Pico to get things going
 - See more examples in https://github.com/raspberrypi/pico-examples
 
 # How to init
